@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<title>JSChart</title>
+
+<script type="text/javascript" src="jscharts.js"></script>
+
+</head>
+<body bgColor="#E0FFFF" onload="load()">
+
+<div id="graph">Loading graph...</div>
+
+<script type="text/javascript">
+	function load(){
+	var data1=window.Health.getGearKey();
+	var data2=window.Health.getOilKey();
+	var data3=window.Health.getMaintainKey()
+	var color1='';
+	var color2='';
+	var color3='';
+
+	if(data1<=3)
+	{
+	  color1='#AF0202';
+        }
+	else if(data1>3 && data1<6)
+	{
+	   color1='#42aBdB';
+	}
+        else
+        {
+           color1='#71D743';
+        } 
+
+
+        if(data2<=3)
+	{
+	  color2='#AF0202';
+        }
+	else if(data2>3 && data2<6)
+	{
+	   color2='#42aBdB';
+	}
+        else
+        {
+           color2='#71D743';
+        } 
+
+	if(data3<=3)
+	{
+	  color3='#AF0202';
+        }
+	else if(data3>3 && data3<6)
+	{
+	   color3='#42aBdB';
+	}
+        else
+        {
+           color3='#71D743';
+        } 
+
+
+		
+	var myData = new Array(['Gear', data1], ['Oil',data2], ['Maintainence',data3]);
+	var colors = [color1, color2, color3];
+	var myChart = new JSChart('graph', 'bar');
+	myChart.setDataArray(myData);
+	myChart.colorizeBars(colors);
+	myChart.setTitle('Tractor Health Chart');
+	myChart.setTitleColor('#8E8E8E');
+	myChart.setAxisNameX('Health Parameters');
+	myChart.setAxisNameY('Health Index');
+	myChart.setAxisColor('#C4C4C4');
+	myChart.setAxisNameFontSize(16);
+	myChart.setAxisNameColor('#999');
+	myChart.setAxisValuesColor('#7E7E7E');
+	myChart.setBarValuesColor('#7E7E7E');
+	myChart.setAxisPaddingTop(60);
+	myChart.setAxisPaddingRight(150);
+	myChart.setAxisPaddingLeft(150);
+	myChart.setAxisPaddingBottom(40);
+	myChart.setTextPaddingLeft(105);
+	myChart.setTitleFontSize(11);
+	myChart.setBarBorderWidth(1);
+	myChart.setBarBorderColor('#C4C4C4');
+	myChart.setBarSpacingRatio(50);
+	myChart.setGrid(false);
+	myChart.setSize(616, 321);
+	myChart.setBackgroundImage('chart_bg.jpg');
+	myChart.draw();
+}	
+</script>
+
+<font color="#AF0202">Red:Very Poor Health</font><br/>
+<font color="#42aBdB">Blue:Normal Health</font><br/>
+<font color="#71D743">Green:Good Health</font>
+</body >
+</html>

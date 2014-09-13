@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/start_layout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E0FFFF"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="ACCESSORIES"
+    android:textStyle="italic"
+    android:textColor="#544E4F"
+    android:textSize="20px"
+    android:paddingLeft="100px"
+    
+    />
+ <include layout="@layout/toolbar" />  
+  <Button 
+ 	android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+ 	android:id="@+id/scan"
+ 	android:clickable="true"
+ 	android:text="Scan The BarCode"
+ />	
+ <LinearLayout
+ 		android:id="@+id/access_layout"
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+ 		android:orientation="vertical"
+ 		android:paddingTop="70px"
+ 		android:gravity="center"
+ >
+<TextView 
+		android:id="@+id/ModelType"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+/> 
+<TextView 
+		android:id="@+id/ModelNumber"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		
+/>
+<TextView 
+		android:id="@+id/year"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		
+/>
+<TextView 
+		android:id="@+id/power"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		
+/>
+ <Button 
+ 	android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+ 	android:id="@+id/access"
+ 	android:clickable="true"
+ 	android:text="Get the Accessories"
+ 	
+ />	
+ </LinearLayout>  
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/accesslayout2"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="#EEFFFF"
+>
+
+</LinearLayout> 
+</LinearLayout>

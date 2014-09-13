@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E0FFFF"
+    android:scrollbars="vertical"
+    >
+<include layout="@layout/toolbar"/>
+<TableRow>
+<TextView
+	android:text="ProductName"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+	android:paddingRight="10dip"
+/>
+<EditText
+	android:id="@+id/ProductName"
+	android:width="120dip"
+	android:height="5dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	android:inputType="textNoSuggestions"
+/>	
+</TableRow>
+<TableRow>
+<TextView
+	android:text="Quanity"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+	android:inputType="number"
+/>
+<EditText
+	android:id="@+id/quantity"
+	android:width="120dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	
+/>	
+</TableRow>
+<TableRow>
+<TextView
+	android:text="Expected Price"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+/>
+<EditText
+	android:id="@+id/price"
+	android:width="120dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	
+/>	
+</TableRow>
+
+<TableRow>
+<Button
+	android:id="@+id/bidSubmit"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:gravity="center_vertical|center_horizontal"
+	android:text="Bid"
+	android:layout_column="1"
+	android:background="@drawable/black"
+    android:textColor="#FFFFFF"
+    android:textSize="16dip"
+    android:focusable="true"
+    android:clickable="true"
+    
+/>
+<Button
+	android:id="@+id/bidReject"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:gravity="center"
+	android:text="Reset"
+	android:layout_column="2"
+	android:background="@drawable/red"
+	android:textColor="#FFFFFF"
+/>
+</TableRow>
+</TableLayout>

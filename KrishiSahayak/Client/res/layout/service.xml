@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/start_layout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E0FFFF"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="SERVICE"
+    android:textStyle="italic"
+    android:textColor="#544E4F"
+    android:textSize="20px"
+    android:paddingLeft="100px"
+    
+    />
+ <include layout="@layout/toolbar"/>
+ 
+ <LinearLayout
+    android:gravity="center"
+ 	android:orientation="vertical"
+ 	android:layout_width="wrap_content"
+ 	android:layout_height="wrap_content"
+ 	android:paddingTop="50px"
+ 	android:paddingLeft="60px">
+ 	
+ 	<TextView  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text="Service Schedule Date"
+    android:textStyle="bold"
+    android:textColor="#544E4F"
+    android:textSize="15px"
+    android:paddingLeft="10px"
+    
+    />
+ 	
+ 	<Button android:clickable="true"
+    android:layout_width="fill_parent"
+    android:text="Get" 
+     android:id="@+id/getService"
+     android:layout_height="wrap_content">
+</Button>
+ 	
+ 	</LinearLayout>
+ 	
+ <TextView  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text="Tractor Health"
+    android:textStyle="bold"
+    android:textColor="#544E4F"
+    android:textSize="15px"
+    android:paddingLeft="100px"
+    android:paddingTop="30px"
+    
+    /> 	
+ <LinearLayout
+    android:gravity="center"
+ 	android:orientation="vertical"
+ 	android:layout_width="wrap_content"
+ 	android:layout_height="wrap_content"
+ 	android:paddingLeft="70px"
+ 	>
+ 	
+  <EditText
+    android:id="@+id/hourMeter"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Hour Meter Reading"
+    android:textColor="#544E4F"
+    android:textSize="15px"
+    android:paddingLeft="10px"
+    /> 		   
+  <Button 
+ 	android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+ 	android:id="@+id/showHealth"
+ 	android:clickable="true"
+ 	android:text="Show"
+ />	
+</LinearLayout> 
+ 
+</LinearLayout>
+

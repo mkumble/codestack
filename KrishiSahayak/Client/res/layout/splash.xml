@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ android:id="@+id/TheSplashLayout"
+ android:orientation="vertical"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+>
+ 
+ <ImageView
+ 	android:id="@+id/SplashImageView"
+ 	android:layout_width="wrap_content"
+ 	android:layout_height="wrap_content"
+ 	android:src="@drawable/atrac"
+    android:gravity="left"
+    />
+      
+ </LinearLayout>
+ 

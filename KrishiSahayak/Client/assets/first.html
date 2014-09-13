@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>JSChart</title>
+
+<script type="text/javascript" src="jscharts.js"></script>
+
+</head>
+<body bgColor="#E0FFFF">
+
+<div id="graph"  >Loading graph...</div>
+
+<script type="text/javascript">
+	
+	var myData = new Array(['Paddy', 65], ['Ragi', 20], ['SugarCane', 70], ['Pulse', 20]);
+	var myChart = new JSChart('graph', 'bar');
+	myChart.setDataArray(myData);
+	myChart.setTitle('Crop Growth Trend For Mandya District');
+	myChart.setBarColor('#42aBdB');
+	myChart.setBarOpacity(0.8);
+	myChart.setBarBorderColor('#D9EDF7');
+	myChart.setBarValues(false);
+	myChart.setTitleColor('#8C8383');
+	myChart.setAxisColor('#777E81');
+	myChart.setAxisValuesColor('#777E81');
+	myChart.resize(300,200);
+	myChart.draw();
+	
+</script>
+
+</body>
+</html>

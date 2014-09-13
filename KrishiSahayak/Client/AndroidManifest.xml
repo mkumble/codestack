@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.android.sayak"
+      android:versionCode="1"
+      android:versionName="1.0">
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <application android:icon="@drawable/app" 
+    			android:label="@string/app_name"
+    			android:theme="@style/CustomButton" android:debuggable="true">
+       <activity android:name=".SplashActivity" 
+                 android:theme="@style/Theme.Transparent"
+                 >
+               <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>   
+       </activity>
+        <activity android:name="com.android.sayak.farm.StartActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.android.sayak.farm.AccessActivity"
+                  android:label="@string/APP_ACCESS">
+            
+        </activity>   
+        <activity android:name="com.android.sayak.farm.ServiceActivity"
+                  android:label="@string/APP_ACCESS">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>  
+        <activity android:name="com.android.sayak.farm.BidActivity"
+                  android:label="@string/APP_TRADE"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity> 
+        <activity android:name="com.android.sayak.trade.RegisterActivity"
+                  android:label="@string/APP_REGISTER"
+                  android:windowSoftInputMode="stateHidden"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>
+        <activity android:windowSoftInputMode="stateHidden"
+                  android:label="@string/APP_BID"
+                  android:theme="@android:style/Theme.NoTitleBar" android:name="com.android.sayak.trade.BiddingActivity">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity> 
+        <activity android:name="com.android.sayak.trade.QueryActivity"
+        		  android:windowSoftInputMode="stateHidden"
+                  android:label="@string/APP_QUERY"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>  
+        <activity android:name="com.android.sayak.farm.SuggestActivity"
+        		  android:windowSoftInputMode="stateHidden"
+                  android:label="@string/APP_SUGGEST"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>
+        <activity android:name="com.android.sayak.util.TrendsActivity"
+        		  android:windowSoftInputMode="stateHidden"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>
+        <activity android:name="com.android.sayak.market.MarketActivity"
+        		  android:windowSoftInputMode="stateHidden"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+         </intent-filter>    
+        </activity>
+            
+        <activity android:name="com.android.sayak.market.MapViewActivity"
+        		  android:windowSoftInputMode="stateHidden"
+                  android:theme="@android:style/Theme.NoTitleBar">
+         <intent-filter>
+            <action android:name="android.intent.category.VIEW"/>
+           	<catrgory android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>    
+        </activity>   
+       
+        <activity  android:name=".market.PriceActivity"></activity> 
+        <activity  android:name=".weather.WeatherActivity"></activity>   
+        <activity android:name=".market.TipsActivity"></activity>                        
+     </application>
+
+
+</manifest> 

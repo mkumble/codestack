@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, StartActivity!</string>
+    <string name="app_name">KrishiSayak</string>
+    <string name="APP_COLOR">Color</string>
+    <string name="APP_TRADING">Trading</string>
+    <string name="APP_ACCESS">Accessories</string>
+    <string name="APP_SERVICE">Services</string>
+    <string name="APP_CROP">Crop Suggestor</string>
+    <string name="APP_START">Sahayak</string>
+    <string name="APP_TRADE">Trading</string>
+    <string name="APP_BID">Bidding</string>
+    <string name="APP_REGISTER">REGISTRATION</string>
+    <string name="APP_QUERY">Query</string>
+    <string name="APP_SUGGEST">Crop Suggest</string>
+    <string name="graph_prompt">Select the type of trend</string>
+    <string name="name_prompt">Select name</string>
+    <string-array name="area_name">
+    	<item>Mandya</item>
+    	<item>Belgaum</item>
+    </string-array>
+    
+    <string-array name="crop_name">
+    	<item>Sugarcane</item>
+    	<item>Cotton</item>
+    	</string-array>
+    <string-array name="type_name">
+    	<item>Area</item>
+    	<item>Crop</item>
+    </string-array>
+</resources>

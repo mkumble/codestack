@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+ xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:background="#E0FFFF"
+>
+ 
+ <ImageView
+ 	
+ 	android:layout_width="wrap_content"
+ 	android:layout_height="wrap_content"
+ 	android:src="@drawable/suggest"
+    android:gravity="left"
+    android:background="#E0FFFF"
+    />
+<include layout="@layout/toolbar"/>    
+<TableLayout 
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#E0FFFF"
+>
+<TableRow>
+<TextView
+	android:text="Climate Type"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+	android:paddingRight="10dip"
+/>
+<Spinner
+	android:id="@+id/ClimateId"
+	android:width="250dip"
+	android:height="5dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	android:inputType="textNoSuggestions"
+/>	
+</TableRow>
+<TableRow>
+<TextView
+	android:text="Soil Type"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+	android:paddingRight="10dip"
+/>
+<Spinner
+	android:id="@+id/SoilId"
+	android:width="250dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	android:inputType="textNoSuggestions"
+/>	
+</TableRow>
+<TableRow>
+<TextView
+	android:text="Irrigation Type"
+	android:layout_column="1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#544E4F"
+	android:paddingBottom="60dip"
+	android:textStyle="bold"
+/>
+<Spinner
+	android:id="@+id/irri"
+	android:width="250dip"
+	android:textColor="#000000"
+	android:layout_column="2"
+	
+/>	
+</TableRow>
+<TableRow>
+<Button
+	android:id="@+id/suggShow"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:gravity="center_vertical|center_horizontal"
+	android:text="Trends"
+	android:layout_column="1"
+	android:background="@drawable/orange"
+    android:textColor="#FFFFFF"
+    android:textSize="16dip"
+    android:focusable="true"
+    android:clickable="true"
+    
+/>
+<Button
+	android:id="@+id/suggSubmit"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ask"
+	android:layout_column="3"
+	android:background="@drawable/black"
+	android:gravity="center_vertical|center_horizontal"
+    android:textColor="#FFFFFF"
+    android:textSize="16dip"
+    android:focusable="true"
+    android:clickable="true"
+/>
+</TableRow>
+</TableLayout> 
+</LinearLayout>

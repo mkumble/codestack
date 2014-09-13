@@ -1,0 +1,78 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" /> 
+<title>Google Maps JavaScript API v3 Example: Map Simple</title> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript"> 
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(12.85482,77.58802);
+    var myOptions = {
+      zoom: 14,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+   //This is your present location 
+    var marker1=new google.maps.Marker({
+    	position:myLatlng,
+    	clickable:true,
+    	title:'Your Location'
+    	
+    });
+    marker1.setMap(map);
+    var infowindow1=new google.maps.InfoWindow({
+    				content:'Your Location'
+    				});
+    google.maps.event.addListener(marker1, 'click', function() {
+    infowindow1.open(map,marker1);
+  });
+    //This is the location of your peers 
+    var myLatlng1 = new google.maps.LatLng(12.84141,77.60818);
+    
+    
+    var marker2=new google.maps.Marker({
+    	position:myLatlng1,
+    	clickable:true,
+    	title:'Your Location'
+    	
+    });
+    
+    //Location of Expert 1
+    marker2.setMap(map);
+    var infowindow2=new google.maps.InfoWindow({
+    				content:'Mr John Ragi Expert'
+    				});
+    google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(map,marker2);});
+    
+    //Location of Expert 2
+    var marker3=new google.maps.Marker({
+    	position:myLatlng2,
+    	clickable:true,
+    	title:'Your Location'
+    	
+    });
+    marker3.setMap(map);
+    var infowindow3=new google.maps.InfoWindow({
+    				content:'Mr Narayan Paddy Expert'
+    				});
+    google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(map,marker3);
+    });
+    
+    
+  }
+  
+
+  
+</script> 
+</head> 
+<body onload="initialize()"> 
+  <div id="map_canvas"></div> 
+</body> 
+</html> 
