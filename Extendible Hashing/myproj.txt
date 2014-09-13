@@ -1,0 +1,6 @@
+modify structure
+add new terms
+add delete all key
+add anytime exit key
+check validations
+display records side by side
