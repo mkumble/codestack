@@ -1,3 +1,5 @@
+
+
 class KNNLearner:
 	def __init__(self, k=3,method='mean',leafsize=10):
 		self.k= k;
