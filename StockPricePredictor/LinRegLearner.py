@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 
+__author__ = "Mithun Kumble"
 
 import numpy
 from scipy.spatial import cKDTree
@@ -6,10 +8,15 @@ import math,random,sys,bisect,time
 import numpy,scipy.spatial.distance
 import cProfile,pstats
 import sys
+from CommonUtils import calculateRMSError
+from DataHandler import getflatcsv
 
  
 class LinRegLearner:
 	def __init__(self):
+	  """ 
+	  Initialize the variables
+	  """
 		self.Xtrain = None
 		self.Ytrain = None
 		self.coeff = None
@@ -17,6 +24,9 @@ class LinRegLearner:
 		
 
 	def addEvidence(self,Xtrain,Ytrain=None):
+	  """
+	  Trains the Linear Regression Learner from the XTrain values
+	  """
 		self.Xtrain = Xtrain
 		self.Ytrain = Ytrain
 		xTrainIdentityMatrix = numpy.hstack([self.Xtrain, numpy.ones((len(self.Xtrain), 1))])	
@@ -26,6 +36,9 @@ class LinRegLearner:
 		self.res = numpy.linalg.lstsq(xTrainIdentityMatrix, Ytrain)[0][2]
 	
     	def query(self,XTest):
+	  """
+	  Retrieves the predicted Y values based on the input XTest values
+	  """
 		Y = numpy.dot(XTest, self.coeff) + self.res
 		return Y			
 
@@ -33,6 +46,12 @@ class LinRegLearner:
 
 
 def testLinRegLearner(fname):
+	"""
+	The function testLinRegLearner does the following things:
+	i) Creates a Linear Regression  Learner
+	ii) Trains the learner using about 60% of the data
+	iii Tests the learner using 40% of the data - Calculates the Root Mean Square Error, Correlation Coefficient for the predicted values.
+	"""
 	learner = LinRegLearner()
 	data = getflatcsv(fname)
 	xTrainData = data[0:0.6*len(data),0:2]
@@ -46,17 +65,6 @@ def testLinRegLearner(fname):
 	return rmse,corrCoeff,yActual,yResult
 
 
-def getflatcsv(fname):
-    inf = open(fname)
-    return numpy.array([map(float,s.strip().split(',')) for s in inf.readlines()])
-
-
-def calculateRMSError(yResult,yActual):
-	sumVal=0
-	for i in range(0,len(yResult)):		
-		sumVal = sumVal + (yResult[i]-yActual[i])**2
-	rmse=math.sqrt(float(sumVal)/len(yResult))
-	return rmse
 	
 fname = "data-classification-prob.csv"
 rmse,corrCoeff,yActual,yResult = testLinRegLearner(fname)

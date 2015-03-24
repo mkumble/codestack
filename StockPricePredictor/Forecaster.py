@@ -2,31 +2,22 @@
 
 __author__ = "Mithun Kumble"
 
-import numpy
 from scipy.spatial import cKDTree
 import math,random,sys,bisect,time
 import numpy,scipy.spatial.distance
 import cProfile,pstats
 import sys
-import numpy as np
 import pandas as pd
-import numpy as np
-import math
 import copy
-import QSTK.qstkutil.qsdateutil as du
-import datetime as dt
-import QSTK.qstkutil.DataAccess as da
 import QSTK.qstkutil.tsutil as tsu
 import QSTK.qstkstudy.EventProfiler as ep
 from scipy.optimize import leastsq
-import pylab as plt
 from numpy import *
-import numpy
 from scipy.spatial import cKDTree
 import math,random,sys,bisect,time
-import numpy,scipy.spatial.distance
 import cProfile,pstats
 import sys
+import KNNLearner as KNN
 
 
 def getXParameters(symbol):
@@ -39,27 +30,27 @@ def getXParameters(symbol):
 	
 	#Get differences between stock prices
 	stock_price_difference_dataframe = stock_price_dataframe[0:len(stock_price_dataframe)-1,:] - stock_price_dataframe[1:,:]
-        stock_price_difference_dataframe = np.append(stock_price_difference_dataframe,stock_price_dataframe[len(stock_price_dataframe)-1]-stock_price_dataframe[0])
+        stock_price_difference_dataframe = numpy.append(stock_price_difference_dataframe,stock_price_dataframe[len(stock_price_dataframe)-1]-stock_price_dataframe[0])
 	
 	#Calculate phase for the data
-	pos = np.argwhere(stock_price_difference_dataframe > 0)
-	neg = np.argwhere(stock_price_difference_dataframe < 0)
-	a = np.argwhere(pos>neg[0])[0]
-	b = np.argwhere(neg>pos[0])[0]
+	pos = numpy.argwhere(stock_price_difference_dataframe > 0)
+	neg = numpy.argwhere(stock_price_difference_dataframe < 0)
+	a = numpy.argwhere(pos>neg[0])[0]
+	b = numpy.argwhere(neg>pos[0])[0]
 
 	span = 2*abs(pos[a][0][0] - neg[b][0][0])
 	
 	#mean of the values
-	mean = np.mean(stock_price_dataframe[neg[b][0][0]:neg[b][0][0]+span+1,:])
+	mean = numpy.mean(stock_price_dataframe[neg[b][0][0]:neg[b][0][0]+span+1,:])
 	
 	#calculate maximum altitude for the price
-	max_alt = np.max(stock_price_dataframe[neg[b][0][0]:neg[b][0][0]+span+1,:])
+	max_alt = numpy.max(stock_price_dataframe[neg[b][0][0]:neg[b][0][0]+span+1,:])
 
 	#Normalize the prices
 	norm = (stock_price_dataframe - mean)/(max_alt - mean)
 
 	#Phase calculation
-	phase = np.zeros(np.shape(norm))
+	phase = numpy.zeros(numpy.shape(norm))
 
 	for i in range(1,len(phase)):
 		if norm[i] > 0:
@@ -73,7 +64,7 @@ def getXParameters(symbol):
 			else:
 				phase[i] = 3
 				
-		freqX2=np.zeros((len(stock_price_dataframe)-105, 1))
+		freqX2=numpy.zeros((len(stock_price_dataframe)-105, 1))
         freqX2.fill(span)
         j=0
 		
@@ -84,14 +75,14 @@ def getXParameters(symbol):
 	#Calculating amplitude
         for i in range(0,len(stock_price_dataframe)-105):
                 
-	        phaseX3.append([np.mean(phase[j:j+100,0])])
-		ampX1.append([np.amax(stock_price_dataframe[j:j+100]) - np.amin(stock_price_dataframe[j:j+100])]);
-                priceX4.append([np.mean(stock_price_difference_dataframe[j:j+100])])
+	        phaseX3.append([numpy.mean(phase[j:j+100,0])])
+		ampX1.append([numpy.amax(stock_price_dataframe[j:j+100]) - numpy.amin(stock_price_dataframe[j:j+100])]);
+                priceX4.append([numpy.mean(stock_price_difference_dataframe[j:j+100])])
                 j=j+1
 
-		ampX1=np.array(ampX1)
-        phaseX3=np.array(phaseX3)
-        priceX4=np.array(priceX4)
+		ampX1=numpy.array(ampX1)
+        phaseX3=numpy.array(phaseX3)
+        priceX4=numpy.array(priceX4)
 		
 	return ampX1,freqX2,phaseX3,priceX4
 	
@@ -127,19 +118,19 @@ for sym in ls_symbols:
 	
 	#The y values for training are the differences in stock price data
 	yTrain.append(stock_price_dataframe[105:len(stock_price_dataframe)]-stock_price_dataframe[104])
-        npXTrain = np.vstack(xTrain)
-        npYTrain = np.vstack(yTrain)
+        numpyXTrain = numpy.vstack(xTrain)
+        numpyYTrain = numpy.vstack(yTrain)
  
-npXTrain = np.vstack(xTrain)
-npYTrain = np.vstack(yTrain)
+numpyXTrain = numpy.vstack(xTrain)
+numpyYTrain = numpy.vstack(yTrain)
 
 #Select an appropriate learner for training
 k=7
-learner = KNNLearner(k)
+learner = KNN.KNNLearner(k)
 
 #Training the learner with the data
 print "Training data using KNN Learner with k = "+str(k);
-learner.addEvidence(npXTrain,npYTrain[:,0])
+learner.addEvidence(numpyXTrain,numpyYTrain[:,0])
 ls_symbols = []
 
 
@@ -171,12 +162,12 @@ for sym in ls_symbols:
 	
 	if(sym == "ML4T-324"):
 		yTest=yTest[60:]
-		test= np.zeros(60)
+		test= numpy.zeros(60)
 		test[:] = numpy.NAN
-		yTest = np.append(yTest,test)	
-	yTestAllDays= np.zeros(105)
+		yTest = numpy.append(yTest,test)	
+	yTestAllDays= numpy.zeros(105)
 	yTestAllDays[:] = numpy.NAN
-	yTestAllDays = np.append(yTestAllDays,yTest)
+	yTestAllDays = numpy.append(yTestAllDays,yTest)
 
         yActual = stock_price_dataframe
 		
@@ -210,12 +201,12 @@ for sym in ls_symbols:
 
 	yActual = stock_price_dataframe
         legend = ["YActual" , "YPredicted"]
-        yActualEnd= np.zeros(105)
+        yActualEnd= numpy.zeros(105)
 	yActualEnd[:] = numpy.NAN
-	yActualWithNaN = np.append(yActual,yActualEnd)
-        temp = np.zeros(5)
+	yActualWithNaN = numpy.append(yActual,yActualEnd)
+        temp = numpy.zeros(5)
         temp[:]=numpy.NAN
-        yActualFiveNaN= np.append(yActual,temp)
+        yActualFiveNaN= numpy.append(yActual,temp)
         print "\nCreating time series plot of Days vs (YPredict,YActual) for the last 200 days of the dataset "+str(sym)+".csv...";
         plotChart2YVar1XVar("Dates", range(0,200), "YActual", yActual[len(yActual)-200:len(yActual)], yTestAllDays[len(yTestAllDays)-105-200:len(yTestAllDays)-105],sym+"_Last200DaysYPredictedYActualVsDays",legend)
 

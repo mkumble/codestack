@@ -1,5 +1,10 @@
+#!/usr/bin/env python
 
-#Creates plots based on the parameters based
+__author__ = "Mithun Kumble"
+
+import pylab as plt
+
+#Creates plots based on the parameters passed to the function
 
 def createScatterPlot(xLabel,xValue,yLabel,yValue,fname):
 	plt.clf()

@@ -2,6 +2,9 @@
 
 __author__ = "Mithun Kumble"
 
+import math
+import numpy
+
 
 #Returns the Euclidean Distance between two arrays
 def getEuclideanDistance(sourceArray, destinationArray):

@@ -1,4 +1,9 @@
+#!/usr/bin/env python
 
+__author__ = "Mithun Kumble"
+
+import numpy,scipy.spatial.distance
+from CommonUtils import getEuclideanDistance, calculateRMSError
 
 class KNNLearner:
 	def __init__(self, k=3,method='mean',leafsize=10):
