@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+__author__ = "Mithun Kumble"
+
 def getData(ls_symbols,dt_start,dt_end):
 	dt_timeofday = dt.timedelta(hours=16)
 	ldt_timestamps = du.getNYSEdays(dt_start, dt_end, dt_timeofday)
