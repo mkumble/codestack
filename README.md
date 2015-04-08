@@ -9,5 +9,6 @@ ii) List of buyers for the crop helping the farmer to sell crops at a better rat
 iii) A list of tractor maintenance schedules.
 iv) Best practices to improve farming productivity
 
+Stock Price Predictor - The project Stock Price Predictor predicts the price of stocks using Machine Learning algorithms. The algorithms used for the project are Linear Regression Learner, KNN Learner, Random Forest Learner. Datasets are retrieved from Yahoo Finance using QSTK.
 
-The project Stock Price Predictor predicts the price of stocks using Machine Learning algorithms. The algorithms used for the project are Linear Regression Learner, KNN Learner, Random Forest Learner. Datasets are retrieved from Yahoo Finance using QSTK.
+DissimilarContentExtractor - The tool extracts dissimilar content among a given set of articles (or from files) by calculating the Cosine distance between the tf-idf(Term Frequency-Inverse Document Frequency) vectors of the articles. 
