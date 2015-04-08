@@ -1,4 +1,4 @@
-
+#!/bin/python2.7
 
 import numpy
 from scipy.spatial import cKDTree
@@ -34,6 +34,7 @@ class LinRegLearner:
 
 
 def getDBData():
+    """ Retrieves the normalized populations and cuisine  popularity information """
     print "Getting training data"
    
     #trainingData=c.execute('select county_id as countyId,asian as popAsian,african_american as popAfricanAmerican,white as  popWhite,american_indian as popAmericanIndian,pacific_islander as popPacificIslander,popularity_Mexican_11208 as popularityMexican, popularity_Pizza_11299 as popularityPizza, popularity_Chinese_11252 as popularityChinese from training_data')
@@ -44,6 +45,12 @@ def getDBData():
 
 
 def testLinRegLearner(data, sampleType, cuisineIndex):
+	""" Test the linear regression learner for the given data, the given sample and the give cuisine index.
+	cuisineIndex: Type of cuisine for which popularity has to be predicted. Possible values:
+	Mexican: 6
+	Chinese: 7
+	American: 8
+	Pizza: 9 """
 	learner = LinRegLearner()
 	xTrainData = data[0:0.6*len(data),1:6]
 	yTrainData = data[0:0.6*len(data),cuisineIndex]
@@ -59,26 +66,16 @@ def testLinRegLearner(data, sampleType, cuisineIndex):
 	corrCoeff= numpy.corrcoef(yResult, yActual)[0,1]
 	return rmse,corrCoeff,yActual,yResult
 
-
-
-
-
-	
-
-
 def calculateRMSError(yResult,yActual):
-	#print len(yResult)
-	#print len(yActual)
+	""" Calculates the RMS Error between the predicted results and the actual results """
 	sumVal=0
 	for i in range(0,len(yResult)):
-		#print yResult[i]
-		#print yActual[i]
 		sumVal = sumVal + (yResult[i]-yActual[i])**2
 	rmse=math.sqrt(float(sumVal)/len(yResult))
 	return rmse
 
 
-
+#Connects to the database
 conn = sqlite3.connect('dva.db')
 c = conn.cursor()
 data = getDBData()

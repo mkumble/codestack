@@ -1,3 +1,4 @@
+#!/bin/python2.7 
 
 import numpy
 from scipy.spatial import cKDTree
@@ -8,8 +9,10 @@ import sys
 import numpy as np
 import sqlite3
 
+
 def getDBData():
-    print "Getting training data"
+    """ Retrieves the normalized populations and cuisine  popularity information """
+    print "Getting training data..."
    
     #trainingData=c.execute('select county_id as countyId,asian as popAsian,african_american as popAfricanAmerican,white as  popWhite,american_indian as popAmericanIndian,pacific_islander as popPacificIslander,popularity_Mexican_11208 as popularityMexican, popularity_Pizza_11299 as popularityPizza, popularity_Chinese_11252 as popularityChinese from training_data')
     c.execute('select * from training_data')
@@ -29,7 +32,9 @@ class RandomForestLearner:
 		self.yTrain = None;
     		self.index=0;
   
+	
 	def addEvidence(self,xTrain,yTrain):
+		""" Train the model by building decision trees """
 		self.xTrain = xTrain;
    	 	self.yTrain = yTrain;
 		for i in range(self.k):
@@ -40,7 +45,7 @@ class RandomForestLearner:
 			self.forest.append(tree)
 
   	def buildDecisionTree(self, xTrain, yTrain, tree):
-   
+	      """ Creates an individual tree for building a random forest """
     		if(len(xTrain) == 1):
       			tree.append([self.index,-1, float(yTrain), -1,  -1]);
       			return;
@@ -81,7 +86,6 @@ class RandomForestLearner:
       			print("splitValArray=", splitValArray);
      		 	print("splitVal=", splitVal);
       			print(xTrain[:, randomFeature]);
-      			print(">>>>>>>>>>>>>>One of the parts became zero");
       			print(xLeft);
       			print(xRight);
       			tree.append([self.index,-1, int(np.mean(yTrain)), -1,  -1]);
@@ -99,6 +103,7 @@ class RandomForestLearner:
 
 
         def query(self, xTestArray):
+	  """ Predict y values for the given xTestArray """
                 yTestColl = []
 		for xTest in xTestArray:
 			yTestArray= []
@@ -115,7 +120,7 @@ class RandomForestLearner:
 
 		
         def getYValueFromTree(self, tree,xTest):
-                 
+                 """ Get y values for an individual tree """
                         index = 0
                         while(1):
                                 feature = tree[index][1]
@@ -134,6 +139,7 @@ class RandomForestLearner:
                                 	
 
 def allValuesInListSame(arrList):
+  """ Checks if all the values in the list have the same value """
 		for i in range(0,len(arrList)-1):
 			if(arrList[i] != arrList[i+1]):
 				return False
@@ -141,11 +147,22 @@ def allValuesInListSame(arrList):
   
 
 def testRandomForestLearner(k,data, sampleType, cuisineIndex):
+  """" For the given value of k(tree size), data, sampleType and cuisineIndex, returns the cuisine popularity prediction score 
+  k : Number of trees
+  data : complete dataset
+  sampleType: Type of data to be tested with 
+  cuisineIndex: Type of cuisine for which popularity has to be predicted. Possible values:
+  Mexican: 6
+  Chinese: 7
+  American: 8
+  Pizza: 9 """
 	learner = RandomForestLearner(k)
+	#Train on 60% of data
 	xTrain = data[0:0.6*len(data),1:6]
 	yTrain = data[0:0.6*len(data),cuisineIndex]
 	learner.addEvidence(xTrain,yTrain)
 	if(sampleType == "Out Of Sample"):
+		#Test on 40% of data
 		yResult = learner.query(data[0.6*len(data):len(data),1:6])
 		yActual = data[0.6*len(data):len(data),cuisineIndex]
 	else:
@@ -158,10 +175,12 @@ def testRandomForestLearner(k,data, sampleType, cuisineIndex):
 	
 
 def calculateRMSError(yResult,yActual):
+  """ Calculates the RMS Error between the predicted results and the actual results """
 	rmse = numpy.sqrt(numpy.mean((yResult - yActual)**2));
 	return rmse
 
 def getRandomArray(xTrain,yTrain):
+  """ Retrieves a random array for building a decision tree """
 	iList=[]
 	iList.append(5000);
 	rIndex=5000
@@ -177,7 +196,7 @@ def getRandomArray(xTrain,yTrain):
 	return b,c
 
 
-
+#Creates a connection
 conn = sqlite3.connect('dva.db')
 c = conn.cursor()
 data = getDBData()
