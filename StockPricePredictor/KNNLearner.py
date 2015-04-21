@@ -14,6 +14,7 @@ class KNNLearner:
 		self.leafsize = leafsize
 
 	def addEvidence(self,dataX,dataY=None):
+	  """ Trains the KNN Learner using the dataX"""
 	        if not dataY == None:
 	            data = numpy.zeros([dataX.shape[0],dataX.shape[1]+1])
 	            data[:,0:dataX.shape[1]]=dataX
@@ -28,6 +29,7 @@ class KNNLearner:
 	            self.data = numpy.append(self.data,data,axis=0)
 	
     	def query(self,XTest):
+	  """ Retrieve the Y values for the KNN Learner """
 		i=0
 		j=0
 		distanceYMatrix = numpy.zeros((len(self.data),2))

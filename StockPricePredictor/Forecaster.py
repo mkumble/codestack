@@ -158,7 +158,7 @@ for sym in ls_symbols:
 	yTest = learner.query(numpy.hstack((ampX1,freqX2,phaseX3,priceX4)))
 	
 	#Add the price difference (normalize)
-    yTest = yTest[:]+stock_price_dataframe[104]
+	yTest = yTest[:]+stock_price_dataframe[104]
 	
 	if(sym == "ML4T-324"):
 		yTest=yTest[60:]
