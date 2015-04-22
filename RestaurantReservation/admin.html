@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Admin Login page">
+      <title>Restaurant Reservation - Admin Login</title>
+      <link href="css/normalize.css" rel="stylesheet" type="text/css" >
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div id="wrapper">
+         <header class>
+            <nav class="header bar">
+               <ul>
+                  <li><a href="admin.html">Admin</a></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+               </ul>
+            </nav>
+         </header>
+         <div id="primary_content">
+            <section class="container">
+               <h2 class="label" >Admin Login </h2>
+               <form name="adminLogin" id="adminLogin" 
+                  method="post" action="#">
+                  <fieldset class="contentGroup">
+                     <legend class="label"> Admin Login: </legend>
+                     <label for="email" class="label">Email ID: <input 
+                        type="email" 
+                        name="email" id="email" 
+                        required placeholder="username@domain.xyz" 
+                        pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" 
+                        title="Please enter 
+                        your email address" class="selection">
+                     <label for="password" class="label">Password: <input 
+                        type="password" 
+                        name="password" id="password" 
+                        required title="Please enter your login password" 
+                        class="selection">
+                     <button type="submit" class="button" >Submit</button>
+                     <button type="button" class="link">Forgot 
+                     Password?</button>
+                  </fieldset>
+               </form>
+            </section>
+         </div>
+         <footer class="footer bar">
+            <p> © Restaurant Reservation System 2015 </p>
+         </footer>
+      </div>
+      <!-- To be done <script type="text/javascript" src="js/script.js" 
+         </script> -->
+   </body>
+</html>

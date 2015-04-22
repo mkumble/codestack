@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Admin home page">
+      <title>Restaurant Reservation - Admin Home</title>
+      <link href="css/normalize.css" rel="stylesheet" type="text/css" >
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div id="wrapper">
+         <header class>
+            <nav class="header bar">
+               <ul>
+                  <li><a href="logout.html">Logout</a></li>
+                  <li><a href="index.html">Home</a></li>
+               </ul>
+            </nav>
+         </header>
+         <div id="primary_content">
+            <section class="container">
+               <h1 class="label" > Hello Admin! </h1>
+               <section id="search">
+                  <h2 class="label"> Search Reservation </h2>
+                  <input 
+                     type="search" 
+                     name="searchReservation" 
+                     id="searchReservation" required autofocus 
+                     placeholder="Enter keyword here" 
+                     title="Search by Reservation 
+                     ID, date of Reservation or the number of guests" 
+                     class="selection">
+                  <button type="submit" class="button" >Submit</button>
+                  <legend class="label">Filter search results by:</legend>
+                  <label for="date" class="label">Booking date:<input id="date" 
+                     class="selection" type="date" name="date">
+                  <label for="reserveFromTime" class="label">Time from<input 
+                     type="time" 
+                     class="selection" id="reserveFromTime" placeholder="HH:MM">
+                  <label for="reserveToTime" class="label">Time to<input 
+                     type="time" 
+                     class="selection" id="reserveToTime" placeholder="HH:MM">
+                  <label for="numberOfGuests" class="label">Number of 
+                  Guests:<input 
+                     id="numberOfGuests" placeholder="1" class="selection" 
+                     type="number" 
+                     name="numberOfGuests" min="1" max="6">
+                  <label for="customerName" class="label">Guest Name<input 
+                     id="customerName" placeholder="Enter the guest name" 
+                     class="selection" 
+                     type="text" 
+                     name="customerName" title="Enter guest name">
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th>Reservation ID</th>
+                           <th>Date/Time of booking</th>
+                           <th>Guest Name</th>
+                           <th>Number of Guests</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                        <tr>
+                           <td>RES1324</td>
+                           <td>14 March 2015 21:23 PM </td>
+                           <td>Joe Doe</td>
+                           <td>3</td>
+                           <td>	<button type="submit" class="button" 
+                              >Modify</button></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </section>
+            </section>
+         </div>
+         <footer class="footer bar">
+            <p> © Restaurant Reservation System 2015 </p>
+         </footer>
+      </div>
+      <!-- To be done <script type="text/javascript" src="js/script.js" 
+         </script> -->
+   </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Reserve tables for any day! No 
+         Registration required!">
+      <title>Restaurant Reservation - Reserve Table </title>
+      <link href="css/normalize.css" rel="stylesheet" type="text/css" >
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div id="wrapper">
+         <header class>
+            <nav class="header bar">
+               <ul>
+                  <li><a href="admin.html">Admin</a></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+               </ul>
+            </nav>
+         </header>
+         <div id="primary_content">
+            <section class="container">
+               <h2 class="label" > Make a Reservation </h2>
+               <form name="reservation_info" id="reservation_form" 
+                  method="post" action="#">
+                  <fieldset class="contentGroup">
+                     <legend class="label"> Personal Details: </legend>
+                     <label for="name" class="label">Username: <input 
+                        type="text" 
+                        name="username" 
+                        id="name" required autofocus placeholder="Your Name" 
+                        pattern="[a-zA-Z]{3,}" title=" Please enter more than 3 
+                        characters" class="selection">
+                     <label for="email" class="label">Email: <input 
+                        type="email" 
+                        name="email" id="email" 
+                        required placeholder="username@domain.xyz" 
+                        pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" 
+                        title="Please enter in a 
+                        valid email address" class="selection">
+                     <label for="phone" class="label">Phone: <input type="tel" 
+                        name="phone" id="phone" 
+                        required placeholder="Phone number format: ### 
+                        ### ####" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" 
+                        title="Please 
+                        enter a phone number in this format: ### ### ###$" 
+                        class="selection">
+                  </fieldset>
+                  <fieldset class="contentGroup">
+                     <legend class="label">Booking Details:</legend>
+                     <label for="date" class="label">Booking date:<input 
+                        id="date" 
+                        class="selection" type="date" name="date" 
+                        min="2015-04-21">
+                     <label for="reserveTime" class="label">Time:<input 
+                        type="time" 
+                        class="selection" id="reserveTime" placeholder="HH:MM">
+                     <label for="numberOfGuests" class="label">Number of 
+                     Guests:<input 
+                        id="numberOfGuests" placeholder="1" class="selection" 
+                        type="number" 
+                        name="numberOfGuests" min="1" max="6">
+                     <label for="details" class="label">Additional 
+                     details(optional): <input 
+                        type="text" 
+                        name="additionalDetails" 
+                        id="details" placeholder="Details: Birthday, 
+Anniversary 
+                        etc" class="selection">
+                     <p>Do you require meals?</p>
+                     <label for="yesMeals" class="label">Yes:<input 
+                        id="yesMeals" 
+                        type="radio" 
+                        name="meals" value="yesMeals">
+                     <label for="noMeals" class="label">No:<input id="noMeals" 
+                        type="radio" 
+                        name="meals" 
+                        value="noMeals">
+                     <label for="balcony" class="label">Do you require a 
+                     balcony?<input 
+                        id="balcony" type="checkbox" name="balcony" value="yes" 
+                        checked>
+                     <button type="submit" class="button" >Submit</button>
+                  </fieldset>
+               </form>
+            </section>
+         </div>
+         <footer class="footer bar">
+            <p> © Restaurant Reservation System 2015 </p>
+         </footer>
+      </div>
+      <!-- To be done <script type="text/javascript" src="js/script.js" 
+         </script> -->
+   </body>
+</html>
